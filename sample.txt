@@ -1,0 +1,19 @@
+class LocalPrinter
+{
+public:
+	template<class T>
+	void operator()(const T&x)
+	{
+		std::cout << x;
+	}
+};
+
+
+int main()
+{
+	using namespace tuple_helper;
+	auto x=std::make_tuple(3,"",15);
+	
+	tuple_foreach(x,LocalPrinter());
+
+};
